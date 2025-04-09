@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BARRONCOIN - Official Site</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+    
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .ticker {
+      background: #ffd700;
+      color: #000;
+      padding: 10px 0;
+      font-weight: bold;
+      text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker span {
+      display: inline-block;
+      animation: ticker 15s linear infinite;
+    }
+
+    @keyframes ticker {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    nav {
+      background: #000;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(255, 215, 0, 0.1);
+    }
+
+    nav a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+   
+    nav a:hover{
+    color:#fff;
+  }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: contain;
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+      animation: rotateCoin 12s linear infinite, pulseGlow 3s ease-in-out infinite;
+      transition: transform 0.3s ease;
+    }
+
+    @keyframes rotateCoin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+      }
+
+      50% {
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.7);
+      }
+    }
+
+    .hero img:hover {
+      transform: scale(1.05);
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      color: #ffd700;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .btn {
+      background: linear-gradient(145deg, #fffb0db5, #bba500);
+      color: #000000;
+      font-weight: bold;
+      padding: 17px 45px;
+      margin: 10px;
+      border-radius: 32px;
+      font-size: 16px;
+      box-shadow: 0 5px 15px rgba(202, 200, 100, 0.911);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(255, 255, 0, 0.8);
+    }
+
+    .section-title {
+      text-align: center;
+      color: #ffd700;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .stats,
+    .testimonials,
+    .nft-section {
+      text-align: center;
+    }
+
+    .stats {
+      background: #111;
+      color: #e6e5de;
+    }
+
+    .testimonials {
+      background: #0a0a0a;
+    }
+
+    .testimonial {
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px auto;
+      width: 60%;
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .testimonial span {
+      display: block;
+      margin-top: 10px;
+      color: #ccc;
+    }
+
+    .nft-gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .nft-gallery img {
+      width: 180px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .how-to-buy ol {
+      list-style: decimal;
+      color: #ccc;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 18px;
+      line-height: 1.8;
+      padding-left: 20px;
+    }
+
+    .cta,
+    .countdown-section {
+      background: linear-gradient(to right, #222, #000);
+      text-align: center;
+      padding: 40px 20px;
+    }
+.cta a.btn{
+  margin-bottom: 20px;
+}
+    .subscribe {
+      background: #111;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .subscribe input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      border: none;
+      border-radius: 8px;
+      margin-right: 10px;
+    }
+
+    .subscribe button {
+      padding: 10px 20px;
+      background: #ffd700;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      background: linear-gradient(to right, #111, #000);
+      border-top: 1px solid #222;
+      color: #555;
+      font-size: 14px;
+      padding: 30px 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="particles-js"></div>
+
+  <div class="ticker">
+    <span>🔥 BarronCoin just hit 1,200 holders! | 🚀 New exchange listing soon! | 🎨 Exclusive NFTs coming this
+      week!</span>
+  </div>
+  <div style="background: #000000;color: #ffd700;text-align: center;font-weight: bold;padding: 5px 0;font-size: 14px;">stay tuned for more updates. The Revolution is just beginning.</div>
+
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT </a>
+    <a href="tokenomics.html">TOKENOMICS</a>
+    <a href="roadmap.html">ROADMAP</a>
+    <a href="team.html">TEAM</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+
+  <section class="hero">
+    <img src="barron10.png" alt="BarronCoin Logo">
+    <h1>BARRONCOIN</h1>
+    <p>The Silent Heir of the Meme Empire has arrived.</p>
+    <div class="buttons">
+      <a href="learn-more.html" class="btn">Learn More</a>
+      <a href="tokenomics.html" class="btn">Tokenomics</a>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Join the Revolution</h2>
+    <p>Don't miss the future of political meme coins. Be part of history.</p>
+    <a href="https://pump.fun" target="_blank" class="btn" style="margin-bottom: 40px;">Buy $BRN Now</a>
+  </section>
+
+  <section class="stats">
+    <h2 class="section-title">Live Stats</h2>
+    <p>Current Holders: <span id="holders">6,208</span></p>
+    <p>Market Cap: <span id="marketcap">$67,540</span></p>
+  </section>
+
+  <section class="countdown-section">
+    <h2 class="section-title">NFT Drop In</h2>
+    <div id="countdown" style="font-size: 24px; color: #edece5;"></div>
+  </section>
+
+  <section class="how-to-buy">
+    <h2 class="section-title">How to Buy $BRN</h2>
+    <ol>
+      <li>Download a crypto wallet (e.g. MetaMask).</li>
+      <li>Buy Ethereum (ETH) on any exchange and transfer to your wallet.</li>
+      <li>Go to Uniswap and paste the $BRN token contract address.</li>
+      <li>Swap ETH for $BRN.</li>
+      <li>Hold tight and watch the moonshot!</li>
+    </ol>
+  </section>
+
+  <section class="nft-section">
+    <h2 class="section-title">Exclusive NFTs</h2>
+    <div class="nft-gallery">
+      <img src="nft11.png" alt="NFT 1">
+      <img src="nft22.png" alt="NFT 2">
+      <img src="nft33.png" alt="NFT 3">
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2 class="section-title">What People Are Saying</h2>
+    <div class="testimonial">
+      <p>"I bought $BRN early and it was the best decision of my life!"</p>
+      <span>- CryptoBro007</span>
+    </div>
+    <div class="testimonial">
+      <p>"BarronCoin to the moon!"</p>
+      <span>- MoonHunter</span>
+    </div>
+    <div class="testimonial">
+      <p>"x30 return! BarronCoin is unmatched."</p>
+      <span>- BigWhale22</span>
+    </div>
+  </section>
+
+  <section class="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div>
+      <p><strong>What is BarronCoin?</strong><br>BARRONCOIN is a meme-based political token that symbolizes the next
+        generation of decentralized influence.</p>
+      <p><strong>Where can I buy $BRN?</strong><br>Right now, you can get it on Uniswap using ETH.</p>
+      <p><strong>Is there a max supply?</strong><br>Yes, only 1 billion tokens will ever exist — no inflation, no games.
+      </p>
+      <p><strong>Will there be NFTs?</strong><br>Absolutely. We’re dropping an exclusive NFT collection tied to $BRN
+        holders.</p>
+    </div>
+  </section>
+
+  <section class="subscribe">
+    <h2 class="section-title">Stay Updated</h2>
+    <p>Enter your email to receive news and updates about BarronCoin.</p>
+    <form>
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <audio id="clickSound" src="click.mp3" preload="auto"></audio>
+
+  <footer>
+    &copy; 2025 BARRONCOIN — All Rights Reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80 },
+        color: { value: "#ffd700" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 2.5, random: true },
+        line_linked: {
+          enable: true,
+          distance: 120,
+          color: "#ffd700",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          out_mode: "bounce"
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 140, line_linked: { opacity: 0.7 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+
+    // Live Stats
+    let holders = 6208;
+    let marketcap = 67540;
+    setInterval(() => {
+      holders += Math.floor(Math.random() * 3);
+      marketcap += Math.floor(Math.random() * 200);
+      document.getElementById("holders").textContent = holders.toLocaleString();
+      document.getElementById("marketcap").textContent = `$${marketcap.toLocaleString()}`;
+    }, 2000);
+
+    // Countdown
+    const countdown = document.getElementById("countdown");
+    const launchDate = new Date("2025-06-01T20:00:00").getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = launchDate - now;
+      if (diff <= 0) {
+        countdown.innerHTML = "🚀 NFT Drop is Live!";
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+
+    // Click sound
+    document.querySelectorAll(".btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const sound = document.getElementById("clickSound");
+        sound.currentTime = 0;
+        sound.play();
+      });
+    });
+  </script>
+</body>
+
+</html>      

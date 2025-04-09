@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roadmap | BARRONCOIN</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    nav {
+      background: #000;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(255, 215, 0, 0.1);
+    }
+
+    nav a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      color: #ffd700;
+      margin-top: 60px;
+    }
+
+    .roadmap-section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .phase-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #ffd700;
+      border-radius: 12px;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .phase-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .phase-box h3 {
+      color: #ffd700;
+      margin-bottom: 10px;
+    }
+
+    .phase-box p {
+      font-size: 16px;
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 30px 20px;
+      color: #666;
+      font-size: 14px;
+      border-top: 1px solid #222;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tokenomics.html">Tokenomics</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="team.html">Team</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <section class="roadmap-section">
+    <h2 class="section-title">Our Roadmap</h2>
+    <div class="roadmap-grid">
+      <div class="phase-box">
+        <h3>✅ Phase 1: Launch</h3>
+        <p>Website launch, whitepaper, and token deployment.</p>
+      </div>
+      <div class="phase-box">
+        <h3>🚀 Phase 2: Marketing</h3>
+        <p>Social media blitz, influencer campaigns, and meme contests.</p>
+      </div>
+      <div class="phase-box">
+        <h3>🌎 Phase 3: Listings</h3>
+        <p>Apply to major CEXs, list on CoinGecko & CoinMarketCap.</p>
+      </div>
+      <div class="phase-box">
+        <h3>🎮 Phase 4: NFT Game</h3>
+        <p>Release Barron-themed NFT collection & play-to-earn game.</p>
+      </div>
+      <div class="phase-box">
+        <h3>🏆 Phase 5: Global Domination</h3>
+        <p>Expand the BarronCoin ecosystem to partnerships & beyond!</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 BARRONCOIN — All Rights Reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80 },
+        color: { value: "#ffd700" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 2.5, random: true },
+        line_linked: {
+          enable: true,
+          distance: 120,
+          color: "#ffd700",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          out_mode: "bounce"
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 140, line_linked: { opacity: 0.7 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+
+</body>
+
+</html>
