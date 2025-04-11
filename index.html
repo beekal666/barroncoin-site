@@ -213,19 +213,57 @@
 .cta a.btn{
   margin-bottom: 20px;
 }
+    .subscribe form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
     .subscribe {
-      background: #111;
-      text-align: center;
-      padding: 40px 20px;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+    .subscribe form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
 
-    .subscribe input[type="email"] {
-      padding: 10px;
-      width: 250px;
-      border: none;
-      border-radius: 8px;
-      margin-right: 10px;
-    }
+.subscribe label {
+  width: 100%;
+  color: #fff;
+}
+    #formMessage {
+  background-color: #002f00;
+  border: 2px solid #00ff66;
+  color: #00ff66;
+  padding: 15px;
+  margin-top: 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 0 15px #00ff66;
+}
+
+
+.subscribe input,
+.subscribe textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  box-sizing: border-box;
+}
+
+.subscribe textarea {
+  resize: vertical;
+  min-height: 80px;
+}
 
     .subscribe button {
       padding: 10px 20px;
@@ -399,10 +437,21 @@
   <section class="subscribe">
     <h2 class="section-title">Stay Updated</h2>
     <p>Enter your email to receive news and updates about BarronCoin.</p>
-    <form>
-      <input type="email" placeholder="Enter your email" required>
-      <button type="submit">Subscribe</button>
+     <form id="contactForm" action="https://formspree.io/f/xjkyjqze" method="POST">
+      <label>
+        Your email:
+        <input type="email" name="email" placeholder="Enter your email" required>
+      </label>
+      <label>
+        Your message (Optional):
+        <textarea name="message" placeholder="(Optional) if you have any questions or problems, you can leave a message"></textarea>
+      </label>
+      <!-- your other form fields go here -->
+      <button type="submit" class="btn">subscribe</button>
+       <div id="formMessage" style="display:none; color: #0f0; margin-top: 15px;"></div>
+
     </form>
+
   </section>
 
   <audio id="clickSound" src="click.mp3" preload="auto"></audio>
@@ -484,7 +533,40 @@
         sound.play();
       });
     });
-  </script>
-</body>
+  // Form submission
+      document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault(); // نمنع إعادة تحميل الصفحة
 
-</html>      
+        const form = e.target;
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+          .then(response => {
+            const messageBox = document.getElementById("formMessage");
+            if (response.ok) {
+              messageBox.style.display = "block";
+              messageBox.style.color = "#0f0";
+              messageBox.textContent = "Thanks! Your message has been sent successfully.";
+              form.reset();
+            } else {
+              messageBox.style.display = "block";
+              messageBox.style.color = "#f00";
+              messageBox.textContent = "There was a problem submitting your message.";
+            }
+          })
+          .catch(error => {
+            const messageBox = document.getElementById("formMessage");
+            messageBox.style.display = "block";
+            messageBox.style.color = "#f00";
+            messageBox.textContent = "There was a problem submitting your message.";
+          });
+      });
+    </script>
+  </body>
+</html>
