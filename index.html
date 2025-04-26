@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BARRONCOIN - Official Site</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
@@ -213,6 +213,11 @@
 .cta a.btn{
   margin-bottom: 20px;
 }
+.subscribe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
     .subscribe form {
   display: flex;
   flex-direction: column;
@@ -221,23 +226,12 @@
   max-width: 500px;
   margin: 0 auto;
 }
-    .subscribe {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-    .subscribe form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
 
 .subscribe label {
   width: 100%;
   color: #fff;
 }
-    #formMessage {
+#formMessage {
   background-color: #002f00;
   border: 2px solid #00ff66;
   color: #00ff66;
@@ -251,6 +245,12 @@
 }
 
 
+.subscribe form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
 .subscribe input,
 .subscribe textarea {
   width: 100%;
@@ -283,11 +283,16 @@
       padding: 30px 20px;
       text-align: center;
     }
+   
+
     @media (max-width: 768px) {
   nav {
     flex-wrap: wrap;
     gap: 15px;
     padding: 10px;
+  }
+  .nft-gallery img {
+    width: 90%;
   }
 
   .hero img {
@@ -297,6 +302,8 @@
 
   .hero h1 {
     font-size: 32px;
+    color: #ffe100;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
   .hero p {
@@ -337,9 +344,96 @@
     width: 70%;
   }
 }
+body {
+  overflow-x: hidden;
+}
 
-  </style>
+
+.discord-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgb(0, 0, 0);
+  border: 3px solid #5865F2; /* لون ديسكورد */
+  border-radius: 50px;
+  padding: 12px 24px;
+  color: #FFD700; /* لون النص */
+  font-weight: bold;
+  box-shadow: 0 0 15px #FFD700;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  margin-top: 20px;
+}
+
+.discord-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+.discord-btn:hover {
+  transform: scale(1.05);
+}
+
+.buy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  background: linear-gradient(145deg, #ffdf00, #ffd700);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.9), inset 0 0 10px #fff000;
+  position: relative;
+  transition: transform 0.2s ease;
+  animation: pulse 2s infinite;
+  overflow: hidden;
+}
+
+.buy-btn:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.buy-btn::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, #fff00033 20%, transparent 70%);
+  animation: stars 4s linear infinite;
+  z-index: 0;
+}
+
+.buy-btn .icon {
+  width: 200px;
+  height: 25px;
+  z-index: 1;
+  border-radius: 50%;
+  object-fit: fill;
+}
+
+.buy-btn span {
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 15px #ffd700, 0 0 5px #fff000 inset; }
+  50% { box-shadow: 0 0 35px #ffd700, 0 0 15px #fff000 inset; }
+  100% { box-shadow: 0 0 15px #ffd700, 0 0 5px #fff000 inset; }
+}
+
+@keyframes stars {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+</style>
 </head>
+
 
 <body>
   <div id="particles-js"></div>
@@ -366,13 +460,32 @@
     <div class="buttons">
       <a href="learn-more.html" class="btn">Learn More</a>
       <a href="tokenomics.html" class="btn">Tokenomics</a>
+    
     </div>
+<a href="https://discord.gg/qEZC6sfs" target="_blank" class="discord-btn">
+  <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord Icon">
+  <span>Join Discord</span>
+</a>
+
+
+
+
   </section>
 
   <section class="cta">
-    <h2>Join the Revolution</h2>
+    <h2 class="section-title">Join the Revolution</h2>
     <p>Don't miss the future of political meme coins. Be part of history.</p>
-    <a href="https://pump.fun" target="_blank" class="btn" style="margin-bottom: 40px;">Buy $BRN Now</a>
+    <a href="https://pump.fun" target="_blank" class="buy-btn">
+    <img src="ecommerce-icon-isolated-premium-yellow-round-button-abstract-illustration-ecommerce-icon-premium-yellow-round-button-99713327.webp" alt="Rocket Icon" style="width: 30px;"
+ class="icon">
+      Buy $BRN Now
+    </a>
+    
+<audio id="clickSound" preload="auto">
+  <source src="sound click.wav" type="audio/mpeg">
+</audio>
+
+
   </section>
 
   <section class="stats">
@@ -438,7 +551,9 @@
   <section class="subscribe">
     <h2 class="section-title">Stay Updated</h2>
     <p>Enter your email to receive news and updates about BarronCoin.</p>
-     <form id="contactForm" action="https://formspree.io/f/xjkyjqze" method="POST">
+    <!-- modify this form HTML and place wherever you want your form -->
+    <form id="contactForm" action="https://formspree.io/f/xjkyjqze" method="POST">
+
       <label>
         Your email:
         <input type="email" name="email" placeholder="Enter your email" required>
@@ -449,13 +564,12 @@
       </label>
       <!-- your other form fields go here -->
       <button type="submit" class="btn">subscribe</button>
-       <div id="formMessage" style="display:none; color: #0f0; margin-top: 15px;"></div>
-
+      <div id="formMessage" style="display:none; color: #0f0; margin-top: 15px;"></div>
     </form>
 
-  </section>
 
   <audio id="clickSound" src="click.mp3" preload="auto"></audio>
+  </section>
 
   <footer>
     &copy; 2025 BARRONCOIN — All Rights Reserved.
@@ -534,7 +648,7 @@
         sound.play();
       });
     });
-  // Form submission
+     // Form submission
       document.getElementById("contactForm").addEventListener("submit", function (e) {
         e.preventDefault(); // نمنع إعادة تحميل الصفحة
 
@@ -568,6 +682,19 @@
             messageBox.textContent = "There was a problem submitting your message.";
           });
       });
+
+
+
+
+      document.querySelector('.buy-btn').addEventListener('click', function () {
+          const sound = document.getElementById("clickSound");
+          sound.currentTime = 0;
+          sound.play();
+        });
+
     </script>
-  </body>
-</html>
+   
+
+
+    </body>
+    </html>
